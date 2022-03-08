@@ -5,7 +5,7 @@ Credits:
 University of Oregon CIS 210 Project 6 Outline
 https://www.kite.com/python/answers/how-to-create-dictionary-keys-from-variables-in-python
 
-Description: Reading, organizing, selecting parts of, and graphing earthquake data in csv files
+Description: Reading, organizing, and graphing earthquake data in csv files
 """
 
 
