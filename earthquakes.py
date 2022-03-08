@@ -1,7 +1,10 @@
 """
-Project 6
 Author: Eliza Black
-Credits: https://www.kite.com/python/answers/how-to-create-dictionary-keys-from-variables-in-python
+
+Credits: 
+University of Oregon CIS 210 Project 6 Outline
+https://www.kite.com/python/answers/how-to-create-dictionary-keys-from-variables-in-python
+
 Description: Reading, organizing, selecting parts of, and graphing earthquake data in csv files
 """
 
@@ -109,8 +112,6 @@ def get_series(raw_data: list, col_name: str, col_type: type) -> list:
 
 
 # 3. Summarize the earthquake data
-# Frequency tables are often created by placing data items in a range. Implement a
-# function that will group earthquake magnitudes in light, moderate, major, and strong
 def get_categories(data: list, print_table=True) -> dict:
     """
     Function that will group earthquake magnitudes in light, moderate, major, and strong,
@@ -196,14 +197,7 @@ def plot_bar(x: list, y: list, title: str) -> matplotlib.pyplot.Figure:
     return fig
 
 
-# x = (get_series(load_data('earthquakes-2020.csv'), 'mag', float))
-# y = (get_series(load_data('earthquakes-2021.csv'), 'mag', float))
-# print(plot_bar(x, y, "2021 - 2020 Earthquakes"))
-
-
 def plot_scatter(x: list, y: list, title: str) -> matplotlib.pyplot.Figure:
-    # function to create a scatterplot with the provided x and y lists (of the same length)
-    # and a title for the plot as the third argument. Return the resulting Figure object.
     """
     Creates a scatterplot with the provided x and y lists
     :param x: list of data for specific earthquake attribute, e.g. depth
@@ -221,16 +215,12 @@ def plot_scatter(x: list, y: list, title: str) -> matplotlib.pyplot.Figure:
     return fig
 
 
-# x = (get_series(load_data('earthquakes-2020.csv'), 'depth', float))
-# y = (get_series(load_data('earthquakes-2020.csv'), 'mag', float))
-# print(plot_scatter(x, y, "title"))
-
-
+# CREDIT: main function created by University of Oregon CIS department; not my work
 def main():
     """
     Perform all required steps for this project by calling other functions.
     """
-    # Parts 6.1 and 6.2
+
     # 2020 data
     eq_data = load_data('earthquakes-2020.csv')
     magnitudes = get_series(eq_data, 'mag', float)
@@ -243,12 +233,12 @@ def main():
     print("\n2021 Earthquakes:")
     categories21 = get_categories(magnitudes)
 
-    # Part 6.3
+    # Creating list to be argument for plot_bar list contains differences between 2021 and 2020 magnitudes)
     diff21_20 = []
     for key in categories20.keys():
         diff21_20.append(categories21[key] - categories20[key])
 
-    # Part 6.4
+    # Plotting bar graph and scatterplot
     plot_bar(categories21.keys(), diff21_20, '2021 - 2020 Earthquakes')
     depths = get_series(eq_data, 'depth', float)
     plot_scatter(depths, magnitudes, '2020 Depth vs Magnitude')
